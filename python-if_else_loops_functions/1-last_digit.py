@@ -2,6 +2,8 @@
 import random
 number = random.randint(-10000, 10000)
 last = abs(number) % 10
+if number < 0:
+    last = 0 - last
 phrase = "Last digit of " + str(number) + " is " + str(last) + " and is"
 if last > 5:
     print(f"{phrase} greater than 5")
