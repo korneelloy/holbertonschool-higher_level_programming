@@ -16,25 +16,30 @@ def matrix_divided(matrix, div):
     Returns:
         new matrix of divided numbers
     """
+    message_1 = "matrix must be a matrix (list of lists) of integers/floats"
+    message_2 = "Each row of the matrix must have the same size"
+    message_3 = "div must be a number"
+    message_4 = "division by zero"
     lenght = -1
     for line in matrix:
         if lenght == -1:
-            lenght = len(line)
+            try:
+                lenght = len(line)
+            except TypeError:
+                raise TypeError(message_1)
         else:
             if lenght != len(line):
-                message = "Each row of the matrix must have the same size"
-                raise TypeError(message)
+                raise TypeError(message_2)
     if not isinstance(div, (int, float)):
-        raise TypeError("div must be a number")
+        raise TypeError(message_3)
     if div == 0:
-        raise ZeroDivisionError("division by zero")
+        raise ZeroDivisionError(message_4)
     new_matrix = []
-    message = "matrix must be a matrix (list of lists) of integers/floats"
     for line in matrix:
         try:
             new_line = [round(x / div, 2) for x in line]
         except TypeError:
-            raise TypeError(message)
+            raise TypeError(message_1)
         else:
             new_matrix.append(new_line)
     return new_matrix
