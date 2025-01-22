@@ -23,5 +23,6 @@ def roman_to_int(roman_string):
                     result += c[1]
                 else:
                     result -= c[1]
+                    continue
                 last = c[1]
     return (result)
