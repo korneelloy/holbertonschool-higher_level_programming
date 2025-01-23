@@ -1,1 +1,50 @@
 >>> text_indentation = __import__('5-text_indentation').text_indentation
+
+#test with "normal" parameters: special char in middle + end
+
+>>> text_indentation("a phrase with a special character? Followed by some more text with another special character and nothing else.")
+a phrase with a special character?
+<BLANKLINE>
+Followed by some more text with another special character and nothing else.
+<BLANKLINE>
+
+#test with "normal" parameters: special char in middle + end no special char
+
+>>> text_indentation("a phrase with a special character? Followed by some more text without special character and no spaces")
+a phrase with a special character?
+<BLANKLINE>
+Followed by some more text without special character and no spaces
+
+#test with "normal" parameters: no special char
+
+>>> text_indentation("a phrase without special character and no spaces")
+a phrase without special character and no spaces
+
+#test with "normal" parameters: special char at end and whitspace after special chars
+
+>>> text_indentation("a phrase with special character           ?          and some spaces           :          ")
+a phrase with special character           ?
+<BLANKLINE>
+and some spaces           :
+<BLANKLINE>
+
+#test with parameter other than string: 
+
+>>> text_indentation(15)
+Traceback (most recent call last):
+...
+TypeError: text must be a string
+
+#test with 0 parameters: 
+
+>>> text_indentation()
+Traceback (most recent call last):
+...
+TypeError: text_indentation() missing 1 required positional argument: 'text'
+
+#test with one too many parameters: 
+
+>>> text_indentation("one", "two")
+Traceback (most recent call last):
+...
+TypeError: text_indentation() takes 1 positional argument but 2 were given
