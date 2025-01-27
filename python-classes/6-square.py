@@ -62,12 +62,12 @@ class Square:
             self: the square (and its size and position)
         """
 
-        if self.position[1] != 0:
-                for _ in range(self.position[1]):
-                    print("")
         if self.size == 0:
             print()
         else:
+            if self.position[1] != 0:
+                for _ in range(self.position[1]):
+                    print("")
             for _ in range(self.size):
                 print(" " * self.position[0], end="")
                 print("#" * self.size)
