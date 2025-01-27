@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-The 0-square module defines an class named square
+The 2-square module defines an class named square
 """
 
 
