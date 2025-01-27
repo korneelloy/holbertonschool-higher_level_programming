@@ -15,6 +15,7 @@ class Square:
         position:
     method (public):
         returning square area
+        printing with #, white space and new lines
     """
     def __init__(self, size=0, position=(0, 0)):
         self.size = size
@@ -57,14 +58,14 @@ class Square:
         """
         prints the square to the standard outout suinf #
         args:
-            self: the square (and its size)
+            self: the square (and its size and position)
         """
 
         if self.size == 0:
             print()
-        else:
-            if self.position[1] != 0:
-                print("" * self.position[1])
+        if self.position[1] > 0:
+            print("" * self.position[1])
+        if self.size != 0:
             for _ in range(self.size):
                 print(" " * self.position[0], end="")
                 print("#" * self.size)
