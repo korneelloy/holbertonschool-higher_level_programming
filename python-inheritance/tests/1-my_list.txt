@@ -11,6 +11,23 @@ True
 >>> isinstance(my_list, MyList)
 True
 
+#test non int
+>>> my_list.append(1)
+>>> my_list.append(4)
+>>> my_list.append("string")
+>>> my_list.print_sorted()
+Traceback (most recent call last):
+...
+TypeError: '<' not supported between instances of 'str' and 'int'
+
+
+#test with None
+>>> my_list = None
+>>> my_list.print_sorted()
+Traceback (most recent call last):
+...
+AttributeError: 'NoneType' object has no attribute 'print_sorted'
+
 
 #test with "normal" parameters
 
