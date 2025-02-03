@@ -1,0 +1,24 @@
+>>> print_sorted = __import__('1-my_list').MyList.print_sorted
+
+
+#test with "normal" parameters
+
+>>> print_sorted([2,8,3])
+[2, 3, 8]
+
+
+#test with parameters being negative
+
+>>> print_sorted([2,8,-3])
+[-3, 2, 8]
+
+
+#test with only one parameter 
+
+>>> print_sorted([2])
+[2]
+
+#test with emty list 
+
+>>> print_sorted([])
+[]
