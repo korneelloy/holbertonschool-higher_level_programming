@@ -1,4 +1,15 @@
 >>> print_sorted = __import__('1-my_list').MyList.print_sorted
+>>> MyList = __import__('1-my_list').MyList
+
+#test creation my_list
+>>> my_list = MyList()
+>>> isinstance(my_list, list)
+True
+
+#test creation my_list
+>>> my_list = MyList()
+>>> isinstance(my_list, MyList)
+True
 
 
 #test with "normal" parameters
@@ -6,12 +17,10 @@
 >>> print_sorted([2,8,3])
 [2, 3, 8]
 
-
 #test with parameters being negative
 
 >>> print_sorted([2,8,-3])
 [-3, 2, 8]
-
 
 #test with only one parameter 
 
@@ -22,3 +31,5 @@
 
 >>> print_sorted([])
 []
+
+

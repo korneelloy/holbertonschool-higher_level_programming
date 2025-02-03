@@ -12,6 +12,11 @@ class MyList(list):
     def __init__(self):
         pass
 
+    """
+    prints sorted list
+    argv:
+        list
+    """
     def print_sorted(self):
         new_list = list
         new_list = sorted(self)
