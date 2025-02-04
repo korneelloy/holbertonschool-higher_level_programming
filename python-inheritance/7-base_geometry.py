@@ -13,20 +13,19 @@ class BaseGeometry:
     def __init__(self):
         pass
 
-    """
-    method calculating the area
-    """
     def area(self):
+        """
+        method calculating the area
+        """
         raise Exception("area() is not implemented")
 
-    """
-    method validating data
-    argv:
-        name: the name of the attribute
-        value: the value of the attribute
-    """
-
     def integer_validator(self, name, value):
+        """
+        method validating data
+        argv:
+            name: the name of the attribute
+            value: the value of the attribute
+        """
         if type(value) is not int:
             raise TypeError("{} must be an integer".format(name))
         if value <= 0:

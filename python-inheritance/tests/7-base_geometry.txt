@@ -1,5 +1,6 @@
 >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
->>> integer_validator = __import__('7-base_geometry').BaseGeometry.integer_validator
+>>> inst = BaseGeometry()
+>>> integer_validator = inst.integer_validator
 
 
 #test creation instance
@@ -42,3 +43,23 @@ TypeError: BaseGeometry.integer_validator() missing 1 required positional argume
 Traceback (most recent call last):
 ...
 TypeError: name must be an integer
+
+#test documentation module
+>>> documen = BaseGeometry.__doc__
+>>> len(documen) > 1
+True
+
+#test documentation module
+>>> documen = __import__('7-base_geometry').__doc__
+>>> len(documen) > 1
+True
+
+#test documentation class
+>>> documen = BaseGeometry.__doc__
+>>> len(documen) > 1
+True
+
+#test documentation methode
+>>> documen = BaseGeometry.integer_validator.__doc__
+>>> len(documen) > 1
+True
