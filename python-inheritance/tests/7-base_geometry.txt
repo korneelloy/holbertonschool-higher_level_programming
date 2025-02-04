@@ -1,7 +1,5 @@
 >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
->>> integer_validator = BaseGeometry.integer_validator
-
-
+>>> integer_validator = __import__('7-base_geometry').BaseGeometry.integer_validator
 
 
 #test creation instance
@@ -34,7 +32,7 @@ ValueError: distance must be greater than 0
 
 
 #test with only one parameter 
->>> inst.integer_validator(3)
+>>> inst.integer_validator("name")
 Traceback (most recent call last):
 ...
 TypeError: BaseGeometry.integer_validator() missing 1 required positional argument: 'value'

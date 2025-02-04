@@ -2,7 +2,7 @@
 """
 The base_geometry module for now only creates empty class
 with one empty method calculating the area, supposedly
-and ine method for data validation
+and one method for data validation
 """
 
 
@@ -18,11 +18,14 @@ class BaseGeometry:
     """
     def area(self):
         raise Exception("area() is not implemented")
-    
+
     """
     method validating data
+    argv:
+        name: the name of the attribute
+        value: the value of the attribute
     """
-    
+
     def integer_validator(self, name, value):
         if not isinstance(value, int):
             raise TypeError("{} must be an integer".format(name))
