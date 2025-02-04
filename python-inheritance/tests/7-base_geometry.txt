@@ -43,7 +43,7 @@ ValueError: distance must be greater than 0
 >>> inst.integer_validator("name")
 Traceback (most recent call last):
 ...
-TypeError: BaseGeometry.integer_validator() missing 1 required positional argument: 'value'
+TypeError: integer_validator() missing 1 required positional argument: 'value'
 
 #test with bool
 >>> inst.integer_validator("name", True)
