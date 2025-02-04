@@ -57,10 +57,6 @@ Traceback (most recent call last):
     ...
 TypeError: name must be an integer
 
-#test documentation module
->>> documen = BaseGeometry.__doc__
->>> len(documen) > 1
-True
 
 #test documentation module
 >>> documen = __import__('7-base_geometry').__doc__

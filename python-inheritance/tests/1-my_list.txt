@@ -50,4 +50,17 @@ AttributeError: 'NoneType' object has no attribute 'print_sorted'
 >>> print_sorted([])
 []
 
+#test documentation module
+>>> documen = __import__('1-my_list').__doc__
+>>> len(documen) > 1
+True
 
+#test documentation class
+>>> documen = MyList.__doc__
+>>> len(documen) > 1
+True
+
+#test documentation methode
+>>> documen = MyList.print_sorted.__doc__
+>>> len(documen) > 1
+True

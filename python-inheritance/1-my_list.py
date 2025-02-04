@@ -10,14 +10,15 @@ class MyList(list):
     defines an object of type list
     """
     def __init__(self):
+        """
+        init method
+        """
         pass
 
-    """
-    prints sorted list
-    argv:
-        list
-    """
     def print_sorted(self):
-        new_list = list
-        new_list = sorted(self)
-        print(new_list)
+        """
+        prints sorted list
+        argv:
+            list
+        """
+        print(sorted(self))
