@@ -38,8 +38,11 @@ class Rectangle(BaseGeometry):
     """
     the Rectangle class
     """
-    def __init__(self, width, height):
-        self.integer_validator("py 8", width)
+    def __init__(self, width=0, height=0):
+        """
+        init method
+        """
+        self.integer_validator("width", width)
         self.integer_validator("height", height)
         self.__width = width
         self.__height = height
@@ -51,4 +54,21 @@ class Rectangle(BaseGeometry):
         return (self.__width * self.__height)
 
     def __str__(self):
-        return (f"[{type(self).__name__}] {str(self.__width)}/{str(self.__height)}")
+        """
+        string method to format print function
+        """
+        phrase = "[{}] {}/{}"\
+            .format(type(self).__name__, self.__width, self.__height)
+        return (phrase)
+
+
+class Square(Rectangle):
+    """
+    the square class
+    """
+    def __init__(self, size):
+        """
+        init method
+        """
+        self.integer_validator("size", size)
+        super().__init__(size, size)
