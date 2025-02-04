@@ -1,13 +1,20 @@
+"""
+Test cases for BaseGeometry class
+"""
+
 >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
 >>> inst = BaseGeometry()
->>> integer_validator = inst.integer_validator
 
 
 #test creation instance
->>> inst = BaseGeometry()
 >>> isinstance(inst, BaseGeometry)
 True
 
+#test area method
+>>> inst.area()
+Traceback (most recent call last):
+    ...
+Exception: area() is not implemented
 
 #test non int
 >>> inst.integer_validator("name", "string")
