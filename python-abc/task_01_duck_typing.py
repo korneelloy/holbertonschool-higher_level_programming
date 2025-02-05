@@ -68,13 +68,28 @@ class Rectangle(Shape):
         """
         perimeter method for rectangle
         """
-        per = self.width + self.height
-        return ("Perimeter: {}".format(2 * (per)))
+        per = 2 * (self.width + self.height)
+        return ("Perimeter: {}".format(per))
 
 
 def shape_info(any_shape):
     """
     shape_info function via ducktyping
+    testing:
+    >>> circle = Circle(radius=5)
+    >>> shape_info(circle)
+    Area: 78.53981633974483
+    Perimeter: 31.41592653589793
+
+    >>> rectangle = Rectangle(width=4, height=7)
+    >>> shape_info(rectangle)
+    Area: 28
+    Perimeter: 22
     """
     print(any_shape.area())
     print(any_shape.perimeter())
+
+
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod()
