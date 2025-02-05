@@ -78,3 +78,9 @@ def shape_info(any_shape):
     """
     any_shape.area()
     any_shape.perimeter()
+
+circle = Circle(radius=5)
+rectangle = Rectangle(width=4, height=7)
+
+shape_info(circle)
+shape_info(rectangle)
