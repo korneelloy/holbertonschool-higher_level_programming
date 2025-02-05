@@ -89,14 +89,15 @@ def shape_info(any_shape):
     print(any_shape.area())
     print(any_shape.perimeter())
 
+def main():
+    circle = Circle(radius=5)
+    shape_info(circle)
 
-circle = Circle(radius=5)
-shape_info(circle)
-
-rectangle = Rectangle(width=4, height=7)
-shape_info(rectangle)
+    rectangle = Rectangle(width=4, height=7)
+    shape_info(rectangle)
 
 
 if __name__ == '__main__':
     import doctest
     doctest.testmod()
+    main()
