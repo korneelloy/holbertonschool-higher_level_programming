@@ -32,20 +32,20 @@ class Circle(Shape):
         """
         init method for circle
         """
-        self.__radius = radius
+        self.radius = radius
 
     def area(self):
         """
         area method for circle
         """
-        ar = math.pi * self.__radius ** 2
+        ar = math.pi * self.radius ** 2
         print("Area: {}".format(ar))
 
     def perimeter(self):
         """
         perimeter method for circle
         """
-        per = 2 * math.pi * self.__radius
+        per = 2 * math.pi * self.radius
         print("Perimeter: {}".format(per))
 
 
@@ -54,21 +54,21 @@ class Rectangle(Shape):
         """
         init method for rectangle
         """
-        self.__width = width
-        self.__height = height
+        self.width = width
+        self.height = height
 
     def area(self):
         """
         area methof for rectangle
         """
-        ar = self.__width * self.__height
+        ar = self.width * self.height
         print("Area: {}".format(ar))
 
     def perimeter(self):
         """
         perimeter method for rectangle
         """
-        per = self.__width + self.__height
+        per = self.width + self.height
         print("Perimeter: {}".format(2 * (per)))
 
 
