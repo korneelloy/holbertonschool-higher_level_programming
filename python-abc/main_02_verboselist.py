@@ -7,4 +7,3 @@ vl.extend([5, 6])
 vl.remove(2)
 vl.pop()
 vl.pop(0)
-

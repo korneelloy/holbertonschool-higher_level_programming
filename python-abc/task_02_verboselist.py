@@ -47,5 +47,22 @@ v_list.remove(4)
 v_list.pop()
 v_list.pop(2)
 print(v_list)
-v_list.pop(15)
-v_list.remove(9)
+try:
+    v_list.pop(15)
+except IndexError:
+    print("IndexError exception called")
+
+try:
+    v_list.remove(10)
+except ValueError:
+    print("ValueError exception called")
+
+try:
+    v_list.append()
+except TypeError:
+    print("TypeError exception called")
+
+try:
+    v_list.extend(5)
+except TypeError:
+    print("TypeError exception called")
