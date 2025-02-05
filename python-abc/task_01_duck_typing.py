@@ -32,7 +32,7 @@ class Circle(Shape):
         """
         init method for circle
         """
-        self.radius = radius
+        self.radius = abs(radius)
 
     def area(self):
         """
