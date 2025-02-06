@@ -13,29 +13,29 @@ class VerboseList(list):
         """
         add print message to list appending
         """
-        super().append(item)
         print(f"Added [{item}] to the list.")
+        super().append(item)
 
     def extend(self, items):
         """
         add print message to list extending
         """
-        super().extend(items)
         print(f"Extended the list with [{len(items)}] items.")
+        super().extend(items)
 
     def remove(self, item):
         """
         add print message to list removal
         """
-        super().remove(item)
         print(f"Removed [{item}] from the list.")
+        super().remove(item)
 
     def pop(self, position=-1):
         """
         add print message to list popping
         """
-        popped = super().pop(position)
-        print(f"Popped [{popped}] from the list.")
+        print(f"Popped [{self[position]}] from the list.")
+        super().pop(position)
 
 
 v_list = VerboseList([1, 2, 3, 4, 4])
