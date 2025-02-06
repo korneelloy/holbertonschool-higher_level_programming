@@ -38,15 +38,13 @@ class Circle(Shape):
         """
         area method for circle
         """
-        ar = math.pi * self.radius ** 2
-        print("Area: {}".format(ar))
+        return math.pi * self.radius ** 2
 
     def perimeter(self):
         """
         perimeter method for circle
         """
-        per = 2 * math.pi * self.radius
-        print("Perimeter: {}".format(per))
+        return 2 * math.pi * self.radius
 
 
 class Rectangle(Shape):
@@ -61,23 +59,21 @@ class Rectangle(Shape):
         """
         area methof for rectangle
         """
-        ar = self.width * self.height
-        print("Area: {}".format(ar))
+        return self.width * self.height
 
     def perimeter(self):
         """
         perimeter method for rectangle
         """
-        per = 2 * (self.width + self.height)
-        print("Perimeter: {}".format(per))
+        return 2 * (self.width + self.height)
 
 
 def shape_info(any_shape):
     """
     shape_info function via ducktyping
     """
-    any_shape.area()
-    any_shape.perimeter()
+    print("Area: {}".format(any_shape.area()))
+    print("Perimeter: {}".format(any_shape.perimeter()))
 
 
 if __name__ == '__main__':
