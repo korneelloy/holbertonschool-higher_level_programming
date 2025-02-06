@@ -35,7 +35,8 @@ class VerboseList(list):
         add print message to list popping
         """
         print(f"Popped [{self[position]}] from the list.")
-        super().pop(position)
+        popped = super().pop(position)
+        return popped
 
 
 v_list = VerboseList([1, 2, 3, 4, 4])
