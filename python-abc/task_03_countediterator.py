@@ -13,6 +13,7 @@ class CountedIterator:
         """
         init method
         """
+        self.some_iterable = some_iterable
         self.iterator = iter(some_iterable)
         self.counter = 0
 
@@ -26,9 +27,9 @@ class CountedIterator:
         """
         overwrite the next function of iter
         """
-        self.counter += 1
         try:
             value = next(self.iterator)
+            self.counter += 1
             return value
         except StopIteration:
             raise StopIteration
