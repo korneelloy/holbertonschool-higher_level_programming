@@ -39,4 +39,8 @@ class CustomObject:
             filename
         """
         with open(filename, 'rb') as file:
-            return (pickle.load(file))
+            deserialized_file = pickle.load(file)
+            if not isinstance(deserialized_file, CustomObject):
+                return None
+            else:
+                return deserialized_file
