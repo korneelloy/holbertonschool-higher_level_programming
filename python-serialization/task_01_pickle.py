@@ -25,6 +25,8 @@ class CustomObject:
         argv:
             filename
         """
+        if not filename:
+            return None
         if not isinstance(self, CustomObject):
             return None
         else:
@@ -39,6 +41,8 @@ class CustomObject:
             filename
         """
         with open(filename, 'rb') as file:
+            if not filename:
+                return None
             deserialized_file = pickle.load(file)
             if not isinstance(deserialized_file, CustomObject):
                 return None
