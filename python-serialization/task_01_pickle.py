@@ -27,8 +27,11 @@ class CustomObject:
         """
         if not filename:
             return None
-        with open(filename, 'wb') as file:
-            pickle.dump(self, file)
+        try:
+            with open(filename, 'wb') as file:
+                pickle.dump(self, file)
+        except Exception:
+            return None
 
     @classmethod
     def deserialize(cls, filename):
@@ -37,8 +40,11 @@ class CustomObject:
         argv:
             filename
         """
-        with open(filename, 'rb') as file:
-            if not filename:
-                return None
-            deserialized_file = pickle.load(file)
-            return deserialized_file
+        try:
+            with open(filename, 'rb') as file:
+                if not filename:
+                    return None
+                deserialized_file = pickle.load(file)
+                return deserialized_file
+        except Exception:
+            return None
