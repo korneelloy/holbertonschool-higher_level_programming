@@ -1,9 +1,13 @@
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import json
 
+"""server"""
+
 
 class SimpleAPIHandler(BaseHTTPRequestHandler):
+    """path handler"""
     def do_GET(self):
+        """get method"""
         if self.path == "/":
             self.send_response(200)
             self.send_header("Content-type", "text/plain")
@@ -31,6 +35,7 @@ class SimpleAPIHandler(BaseHTTPRequestHandler):
 
 
 def run(server_class=HTTPServer, handler_class=SimpleAPIHandler, port=8000):
+    """server running"""
     server_address = ("", port)
     httpd = server_class(server_address, handler_class)
     print(f"Starting server on port {port}...")
