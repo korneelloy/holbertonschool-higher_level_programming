@@ -3,26 +3,39 @@ from flask import Flask, jsonify, request
 """Flask test module"""
 app = Flask(__name__)
 
-users = {"jane": {"name": "Jane", "age": 28, "city": "Los Angeles"}}
+users = {
+    "jane": {
+        "username": "jane",
+        "name": "Jane",
+        "age": 28,
+        "city": "Los Angeles"
+        },
+    "john": {
+        "username": "john",
+        "name": "John",
+        "age": 30,
+        "city": "New York"
+        }
+    }
 
 
 @app.route('/')
 def home():
     # function to handle ('/) route. returns the view.
-    return "Welcome to the Flask API!"
+    return "Welcome to the Flask API!", 200
 
 
 @app.route('/data/')
 def returnUsers():
     # function to handle ('/data) route. returns the view.
-    names = [user["name"] for user in users.values()]
-    return jsonify(names)
+    names = [user["username"] for user in users.values()]
+    return jsonify(names), 200
 
 
 @app.route('/status/')
 def returnStatus():
     # function to handle ('/status) route. returns the view.
-    return "OK"
+    return jsonify({"status": "OK"}), 200
 
 
 @app.route('/users/<username>')
@@ -44,7 +57,7 @@ def addUser():
             users[username] = new_user
             return jsonify({"message": "User added", "user": new_user}), 201
         else:
-            return ('{"error": "Username is required"}', 400)
+            return jsonify('{"error": "Username is required"}'), 400
     else:
         return ("Something went wrong", 400)
 
