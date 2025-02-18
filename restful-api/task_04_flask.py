@@ -16,7 +16,7 @@ users = {
         "age": 30,
         "city": "New York"
         }
-    }
+       }
 
 
 @app.route('/')
@@ -42,7 +42,7 @@ def returnStatus():
 def returnUser(username):
     # function to handle ('/users/<username>') route. returns the view.
     if username in users:
-        return jsonify(users[username])
+        return jsonify(users[username]), 200
     else:
         return jsonify({"error": "User not found"}), 404
 
