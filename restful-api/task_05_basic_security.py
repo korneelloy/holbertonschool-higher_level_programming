@@ -48,7 +48,7 @@ def verify_password(username, password):
 @auth.login_required
 def basic_protected():
     """view returning with basic protection"""
-    return jsonify({"message": "Basic Auth: Access Granted"})
+    return ("Basic Auth: Access Granted")
 
 
 """TOKEN PROTECTION"""
