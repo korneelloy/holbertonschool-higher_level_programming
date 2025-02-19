@@ -1,8 +1,9 @@
 #!/usr/bin/python3
 
+"""Flask test module"""
+
 from flask import Flask, jsonify, request
 
-"""Flask test module"""
 app = Flask(__name__)
 
 users = {}
@@ -11,27 +12,27 @@ users = {}
 @app.route('/')
 def home():
     """ function to handle ('/) route. returns the view."""
-    return "Welcome to the Flask API!", 200
+    return "Welcome to the Flask API!"
 
 
 @app.route('/data')
 def returnUsers():
     """ function to handle ('/data) route. returns the view."""
     names = [user["username"] for user in users.values()]
-    return jsonify(names), 200
+    return jsonify(names)
 
 
 @app.route('/status')
 def returnStatus():
     """ function to handle ('/status) route. returns the view."""
-    return "OK", 200
+    return "OK"
 
 
 @app.route('/users/<username>')
 def returnUser(username):
     """ function to handle ('/users/<username>') route. returns the view """
     if username in users:
-        return jsonify(users[username]), 200
+        return jsonify(users[username])
     else:
         return jsonify({"error": "User not found"}), 404
 
@@ -47,9 +48,6 @@ def addUser():
             return jsonify({"message": "User added", "user": new_user}), 201
         else:
             return jsonify('{"error": "Username is required"}'), 400
-    else:
-        return ("Something went wrong", 400)
-
 
 if __name__ == "__main__":
     app.run()
