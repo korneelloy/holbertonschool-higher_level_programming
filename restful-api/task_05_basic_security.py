@@ -119,5 +119,20 @@ def handle_needs_fresh_token_error(err):
     return jsonify({"error": "Fresh token required"}), 401
 
 
+@jwt.unauthorized_loader
+def handle_missing_token(err):
+    return jsonify({"error": "Authorization header missing or invalid"}), 401
+
+
+@jwt.revoked_token_loader
+def handle_revoked_token(jwt_header, jwt_payload):
+    return jsonify({"error": "Token has been revoked"}), 401
+
+
+@jwt.invalid_token_loader
+def handle_invalid_claims(err):
+    return jsonify({"error": "Invalid token claims"}), 401
+
+
 if __name__ == '__main__':
     app.run()
