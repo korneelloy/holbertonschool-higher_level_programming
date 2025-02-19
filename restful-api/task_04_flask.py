@@ -3,21 +3,7 @@ from flask import Flask, jsonify, request
 """Flask test module"""
 app = Flask(__name__)
 
-users = {
-    "jane": {
-        "username": "jane",
-        "name": "Jane",
-        "age": 28,
-        "city": "Los Angeles"
-        },
-    "john": {
-        "username": "john",
-        "name": "John",
-        "age": 30,
-        "city": "New York"
-        }
-       }
-
+users = {}
 
 @app.route('/')
 def home():
@@ -35,7 +21,7 @@ def returnUsers():
 @app.route('/status/')
 def returnStatus():
     # function to handle ('/status) route. returns the view.
-    return jsonify({"status": "OK"}), 200
+    return "OK", 200
 
 
 @app.route('/users/<username>')
