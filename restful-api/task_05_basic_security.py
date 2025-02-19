@@ -66,7 +66,7 @@ def login():
         role = users[username]["role"]
         access_token = create_access_token(identity=username,
                                            additional_claims={"role": role})
-        return jsonify(access_token)
+        return jsonify(access_token=access_token)
 
     return jsonify({"error": "Invalid username or password"}), 401
 
