@@ -86,7 +86,7 @@ def admin_only():
     role = claims.get("role")
     if role != 'admin':
         return jsonify({"error": "Admin access required"}), 403
-    return jsonify({"message": "Admin Access: Granted"})
+    return "Admin Access: Granted"
 
 
 @jwt.unauthorized_loader
