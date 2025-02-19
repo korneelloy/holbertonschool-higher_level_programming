@@ -49,5 +49,6 @@ def addUser():
         else:
             return jsonify('{"error": "Username is required"}'), 400
 
+
 if __name__ == "__main__":
     app.run()
