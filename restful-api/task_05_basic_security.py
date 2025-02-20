@@ -121,16 +121,19 @@ def handle_needs_fresh_token_error(err):
 
 @jwt.unauthorized_loader
 def handle_missing_token(err):
+    """error handling"""
     return jsonify({"error": "Authorization header missing or invalid"}), 401
 
 
 @jwt.revoked_token_loader
 def handle_revoked_token(jwt_header, jwt_payload):
+    """error handling"""
     return jsonify({"error": "Token has been revoked"}), 401
 
 
 @jwt.invalid_token_loader
 def handle_invalid_claims(err):
+    """error handling"""
     return jsonify({"error": "Invalid token claims"}), 401
 
 
