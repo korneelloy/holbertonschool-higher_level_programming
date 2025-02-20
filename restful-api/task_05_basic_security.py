@@ -75,7 +75,7 @@ def login():
 @jwt_required()
 def jwt_protected():
     """view returning with jwt protection"""
-    return jsonify({"message": "JWT Auth: Access Granted"})
+    return "JWT Auth: Access Granted"
 
 
 @app.route('/admin-only', methods=['GET'])
