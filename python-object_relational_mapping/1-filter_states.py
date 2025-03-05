@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 
-""" script that lists all states from the database hbtn_0e_0_usa"""
-
+""" script that lists all states starting with N from the database hbtn_0e_0_usa"""
 import MySQLdb
 import sys
 
@@ -22,7 +21,7 @@ def main():
 
         cursor = connection.cursor()
 
-        cursor.execute('''SELECT * FROM states ORDER BY id ''')
+        cursor.execute('''SELECT * FROM states WHERE `name` LIKE 'N%' ORDER BY id ''')
 
         allStatesWithN = cursor.fetchall()
         for states in allStatesWithN:
