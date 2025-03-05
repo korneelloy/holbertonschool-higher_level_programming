@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
-"""script that takes in an argument and displays all values in the states
-table of hbtn_0e_0_usa where name matches the argument."""
+"""script that lists all cities from the database hbtn_0e_4_usa"""
+
 
 import MySQLdb
 import sys
@@ -25,14 +25,20 @@ def main():
 
         cursor = connection.cursor()
 
-        query = "SELECT * FROM states WHERE `name` = %s\
-           ORDER BY id"
+        query = "SELECT cities.name\
+            FROM cities INNER JOIN states ON cities.state_id=states.id\
+                WHERE states.name = %s ORDER BY cities.id"
 
         cursor.execute(query, (state_name,))
 
-        statesWithStateName = cursor.fetchall()
-        for states in statesWithStateName:
-            print(states)
+        allCities = cursor.fetchall()
+        count = 0
+        for city in allCities:
+            if count != 0:
+                print(", ", end="")
+            print(city[0], end="")
+            count += 1
+        print('')
 
     except MySQLdb.Error as e:
         print(f"Error connecting to MySQL: {e}")
