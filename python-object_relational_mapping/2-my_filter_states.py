@@ -25,15 +25,13 @@ def main():
 
         cursor = connection.cursor()
 
-        cursor.execute(
-            f'''SELECT *
-            FROM states
-            WHERE `name` = '{state_name}'
-            ORDER BY id
-            ''')
+        query = "SELECT * FROM states WHERE `name` = '{}'\
+           ORDER BY id".format(state_name)
 
-        allStatesWithN = cursor.fetchall()
-        for states in allStatesWithN:
+        cursor.execute(query)
+
+        statesWithStateName = cursor.fetchall()
+        for states in statesWithStateName:
             print(states)
 
     except MySQLdb.Error as e:
