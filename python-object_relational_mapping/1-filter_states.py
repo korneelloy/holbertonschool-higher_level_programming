@@ -1,8 +1,10 @@
 #!/usr/bin/python3
 
-""" script that lists all states starting with N from the database hbtn_0e_0_usa"""
+""" script that lists all states starting with N
+from the database hbtn_0e_0_usa"""
 import MySQLdb
 import sys
+
 
 def main():
     """main function to avoid execution when imported"""
@@ -12,16 +14,18 @@ def main():
 
     try:
         connection = MySQLdb.connect(
-            host = 'localhost',
-            port = 3306,
-            user = username,
-            password = pw,
-            database = db
+            host='localhost',
+            port=3306,
+            user=username,
+            password=pw,
+            database=db
         )
 
         cursor = connection.cursor()
 
-        cursor.execute('''SELECT * FROM states WHERE `name` LIKE 'N%' ORDER BY id ''')
+        cursor.execute(
+            '''SELECT * FROM states WHERE `name` LIKE 'N%' ORDER BY id '''
+            )
 
         allStatesWithN = cursor.fetchall()
         for states in allStatesWithN:
@@ -34,6 +38,7 @@ def main():
             cursor.close()
         if connection:
             connection.close()
+
 
 if __name__ == "__main__":
     main()

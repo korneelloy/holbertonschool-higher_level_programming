@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 
-""" script that lists all states from the database hbtn_0e_0_usa"""
+"""script that takes in an argument and displays all values in the states
+table of hbtn_0e_0_usa where name matches the argument."""
 
 import MySQLdb
 import sys
@@ -11,6 +12,7 @@ def main():
     username = sys.argv[1]
     pw = sys.argv[2]
     db = sys.argv[3]
+    state_name = sys.argv[4]
 
     try:
         connection = MySQLdb.connect(
@@ -23,7 +25,12 @@ def main():
 
         cursor = connection.cursor()
 
-        cursor.execute('''SELECT * FROM states ORDER BY id ''')
+        cursor.execute(
+            f'''SELECT *
+            FROM states
+            WHERE `name` = '{state_name}'
+            ORDER BY id
+            ''')
 
         allStatesWithN = cursor.fetchall()
         for states in allStatesWithN:
