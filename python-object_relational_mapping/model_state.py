@@ -1,0 +1,43 @@
+#!/usr/bin/python3
+
+import sqlalchemy as sa
+import sys
+from sqlalchemy.orm import Mapped, mapped_column, declarative_base
+from sqlalchemy import String
+
+
+"""connection to db"""
+username = sys.argv[1]
+pw = sys.argv[2]
+db = sys.argv[3]
+query = "mysql+pymysql://{}:{}@localhost:3306/{}".format(username, pw, db)
+engine = sa.create_engine(query)
+
+"""creation of base class, that will be used to define table"""
+Base = declarative_base()
+
+
+class State(Base):
+    """defining the class State / MySQL table states
+    with 2 class attributes
+    corresponding to 2 colums
+    """
+    __tablename__ = "states"
+
+    id: Mapped[int] = mapped_column(
+        primary_key=True,
+        autoincrement=True,
+        nullable=False
+        )
+    name: Mapped[str] = mapped_column(
+        String(128),
+        nullable=False
+        )
+
+
+def main():
+    Base.metadata.create_all(engine)
+
+
+if __name__ == "__main__":
+    main()
