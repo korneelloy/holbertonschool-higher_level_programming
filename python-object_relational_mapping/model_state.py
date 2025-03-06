@@ -37,6 +37,7 @@ class State(Base):
 
 
 def main():
+    """main function to avoid execution when imported"""
     Base.metadata.create_all(engine)
 
 
