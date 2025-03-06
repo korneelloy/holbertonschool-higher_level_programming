@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 
+"""module creating state model"""
+
 import sqlalchemy as sa
 import sys
 from sqlalchemy.orm import declarative_base
