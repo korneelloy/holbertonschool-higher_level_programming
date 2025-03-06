@@ -2,8 +2,8 @@
 
 import sqlalchemy as sa
 import sys
-from sqlalchemy.orm import Mapped, mapped_column, declarative_base
-from sqlalchemy import String
+from sqlalchemy.orm import declarative_base
+from sqlalchemy import String, Column, Integer
 
 
 """connection to db"""
@@ -24,12 +24,13 @@ class State(Base):
     """
     __tablename__ = "states"
 
-    id: Mapped[int] = mapped_column(
+    id = Column(
+        Integer,
         primary_key=True,
         autoincrement=True,
         nullable=False
         )
-    name: Mapped[str] = mapped_column(
+    name = Column(
         String(128),
         nullable=False
         )
