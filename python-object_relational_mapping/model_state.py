@@ -1,19 +1,10 @@
 #!/usr/bin/python3
-
 """module creating state model"""
 
 import sqlalchemy as sa
-import sys
 from sqlalchemy.orm import declarative_base
 from sqlalchemy import String, Column, Integer
-
-
-"""connection to db"""
-username = sys.argv[1]
-pw = sys.argv[2]
-db = sys.argv[3]
-query = "mysql+pymysql://{}:{}@localhost:3306/{}".format(username, pw, db)
-engine = sa.create_engine(query)
+import sys
 
 """creation of base class, that will be used to define table"""
 Base = declarative_base()
@@ -38,10 +29,13 @@ class State(Base):
         )
 
 
-def main():
-    """main function to avoid execution when imported"""
-    Base.metadata.create_all(engine)
-
-
 if __name__ == "__main__":
-    main()
+    """connection to db"""
+    username = sys.argv[1]
+    pw = sys.argv[2]
+    db = sys.argv[3]
+    query = "mysql+mysqldb://{}:{}@localhost:3306/{}".format(username, pw, db)
+    engine = sa.create_engine(query)
+
+    """cretaed tables in db (if non existing)"""
+    Base.metadata.create_all(engine)
