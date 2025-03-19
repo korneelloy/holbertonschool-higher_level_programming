@@ -1,8 +1,21 @@
 #!/usr/bin/env python3
 import os
+"""
+Python function that generates personalized invitation files
+from a template with placeholders and a list of objects.
+"""
 
 
 def generate_invitations(template_content, attendees):
+    """
+    function generating the documents
+    Args:
+        template_content : the template
+        attendees: the list of attendees
+
+    Retuns: nothing; just created the files
+    """
+
     if not isinstance(template_content, str):
         raise TypeError("The template doesn't contain a string")
 
