@@ -1,25 +1,27 @@
 #!/usr/bin/env python3
 import os
 
+
 def generate_invitations(template_content, attendees):
-    if not isinstance(template_content, str) :
+    if not isinstance(template_content, str):
         raise TypeError("The template doesn't contain a string")
-    
+
     if not isinstance(attendees, list):
         raise TypeError("The attendees is not a list")
 
-    for attendee in attendees :
+    for attendee in attendees:
         if not isinstance(attendee, dict):
-            raise TypeError("At least one attendee does not have the correct information")
+            raise TypeError("At least one"
+                            " attendee does not have the correct information")
 
-    if template_content == "" :
+    if template_content == "":
         raise ValueError("Template is empty, no output files generated.")
 
-    if attendees == [] :
+    if attendees == []:
         raise ValueError("No data provided, no output files generated")
 
     i = 1
-    for attendee in attendees :
+    for attendee in attendees:
         if attendee["name"]:
             name = attendee["name"]
         else:
@@ -36,12 +38,12 @@ def generate_invitations(template_content, attendees):
             event_location = attendee["event_location"]
         else:
             event_location = "N/A"
-        
+
         new_output = (template_content
-            .replace("{name}", name)
-            .replace("{event_title}", event_title)
-            .replace("{event_date}", event_date)
-            .replace("{event_location}", event_location))
+                      .replace("{name}", name)
+                      .replace("{event_title}", event_title)
+                      .replace("{event_date}", event_date)
+                      .replace("{event_location}", event_location))
 
         output_file_name = "output_" + str(i) + ".txt"
         i += 1
