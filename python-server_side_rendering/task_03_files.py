@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 import json
 import csv
 
@@ -21,6 +21,7 @@ def about():
 def contact():
     return render_template('contact.html')
 
+
 @app.route('/items')
 def items():
     with open('items.json', 'r') as file:
@@ -29,33 +30,35 @@ def items():
     return render_template('items.html', items=items)
 
 
-@app.route('/product_display/<source>/')
-@app.route('/product_display/<source>/<id>')
-def product_display(source, id=None):
+@app.route('/products')
+def product_display():
+    source = request.args.get('source', type=str)
+    id = request.args.get('id', type=int)
     if source == "json":
         try:
             with open('products.json', 'r') as file:
                 items = json.load(file)
-        except:
+        except FileNotFoundError:
             items = ["Wrong source"]
     elif source == "csv":
         try:
             with open('products.csv', newline='', mode='r') as file:
                 csv_reader = csv.DictReader(file)
                 items = [row for row in csv_reader]
-        except:
+        except FileNotFoundError:
             items = ["Wrong source"]
     else:
         items = ["Wrong source"]
 
-    if not id is None :
+    if id or id == 0:
         try:
-            item = items[int(id)]
+            item = items[id]
             items = [item]
-        except:
+        except IndexError:
             items = ["Product not found"]
 
     return render_template('/product_display.html', items=items)
+
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
